@@ -1,1 +1,17 @@
-REST IN PISS KING VON
+-- Function to replace "the" with "卂丂丂" in a string
+local function replaceThe(message)
+    return string.gsub(message, "tit", "†it")
+end
+
+-- Function to handle incoming chat messages
+local function onChat(message, player)
+    local modifiedMessage = replaceThe(message)
+    game:GetService("Chat"):Chat(player.Character.Head, modifiedMessage)
+end
+
+-- Connect the chat event
+game:GetService("Players").PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        onChat(message, player)
+    end)
+end)
